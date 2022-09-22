@@ -1,4 +1,4 @@
 star = int(input())
 
 for i in range(1, star + 1) :
-	for
+	print(' ' * (star - i), '*' * i, sep='')
