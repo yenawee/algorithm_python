@@ -1,11 +1,24 @@
 N = int(input())
-distance = map(int, input().split())
-cost = map(int, input().split())
+distance = list(map(int, input().split()))
+cost = list(map(int, input().split()))
 
-cost_sum = [] * N
+#cost_sum = cost[0] * distance[0]
+min = cost[0]
+#dist = 0
+#for i in range(1, len(distance)):
+#	if cost[i] < now :
+#		cost_sum += now * dist
+#		now = cost[i]
+#		dist = distance[i]
+#	else :
+#		dist += distance[i]
 
-# cost[0] * distance[0] + (2->4)
-# cost[1] * distance[1:] , cost[1] * distance[1] +  cost[2] * distance[2]
+#print(cost_sum + now * dist)
+cost_sum = 0
+for i in range(N-1):
+	if min > cost[i] : min = cost[i]
+	cost_sum += min * distance[i]
+print(cost_sum)
 
 
 
