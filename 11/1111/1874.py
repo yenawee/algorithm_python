@@ -10,9 +10,9 @@ i = 1
 printlist = []
 while (True):
     if idx == N : break
-    if len(stack) > 0 and stack[-1] > l[idx]: 
-        break 
-    if len(stack) > 0 and stack[-1] == l[idx] : 
+    if len(stack) > 0 and stack[-1] > l[idx]:
+        break
+    if len(stack) > 0 and stack[-1] == l[idx] :
         stack.pop()
         printlist.append('-')
         idx += 1
