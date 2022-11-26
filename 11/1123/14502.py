@@ -8,7 +8,7 @@ board = [list(map(int, input().split())) for _ in range(N)]
 
 zero_list = []
 two_list = []
-res = []
+res = 0
 
 dx, dy = (1, -1, 0, 0), (0,0,1,-1) 
 
@@ -17,7 +17,7 @@ def count(board):
     for i in range(N):
         for j in range(M):
             if not board[i][j] : cnt += 1
-    res.append(cnt)
+    return cnt
 
 def move(x, y, dm, dn):
     if x + dm < 0 or x + dm > N -1 or y+ dn < 0 or y + dn > M - 1 : return
@@ -37,12 +37,12 @@ for i in range(N):
 
 for l in list(combinations(zero_list, 3)):
     b = [x[:] for x in board]
-    for j in range(3):
-        board[l[j][0]][l[j][1]] = 1
+    for j in l:
+        board[j[0]][j[1]] = 1
     for two in two_list :
         for d in range(4):
             move(two[0], two[1], dx[d], dy[d])
-    count(board)
+    res = max(res, count(board))
     board = [x[:] for x in b]
 
-print(max(res))
+print(res)
